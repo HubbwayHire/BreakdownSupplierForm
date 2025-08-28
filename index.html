@@ -69,7 +69,13 @@
                 <option value="Business hours">Business hours</option>
                 <option value="Business hours + out-of-hours">Business hours + out-of-hours</option>
                 <option value="24/7">24/7</option>
-              </select>
+              </select>           
+            </div>
+            <!--Hidden OOO Contact number field-->
+            <div class="col-md-6" id="oohContactContainer" style="display: none;">
+              <label class="form-label required" for="oohContact">Out-of-Hours Contact Number(s)</label>
+              <input type="text" class="form-control" id="oohContact" placeholder="Enter contact number(s)">
+            <div class="invalid-feedback">Please provide at least one contact number.</div>
             </div>
           </div>
 
@@ -161,7 +167,7 @@
             <!-- Travel -->
             <div class="col-md-4">
               <div class="border rounded p-3 h-100">
-                <label class="form-label" for="travelCharge">Travel/ mileage</label>
+                <label class="form-label" for="travelCharge">Travel / mileage</label>
                 <input type="text" class="form-control" id="travelCharge" placeholder="£/mile or zone-based">
               </div>
             </div>
@@ -185,6 +191,37 @@
           </div>
 
           <hr class="my-4">
+<!-- Equipment & Capabilities -->
+<h5 class="section-title">3) Equipment & Capabilities <small class="text-muted" style="font-size: small;">(separate each item by a comma)</small></h5>
+<div class="row g-3">
+  <div class="col-12">
+    <label class="form-label" for="Callouttime">Call-Out Time SLA</label>
+    <input type="text" class="form-control" id="call-out" placeholder="">
+  </div>
+  <div class="col-6">
+    <label class="form-label" for="equipment">Equipment types supported</label>
+    <textarea class="form-control" id="equipment" placeholder="Excavators, Telehandlers, etc" rows="4"></textarea>
+  </div>
+  <div class="col-6">
+  <label class="form-label" for="manufacturers">Manufacturers supported</label>
+  <textarea class="form-control" id="manufacturers" placeholder="" rows="4"></textarea>
+</div>
+
+  <div class="col-12">
+    <label class="form-label" for="certifications">Certifications Held</label>
+    <input type="text" class="form-control" id="certifications" placeholder="">
+  </div>
+  <div class="col-12">
+    <label class="form-label" for="insurance">Insurance</label>
+    <input type="text" class="form-control" id="insurance" placeholder="">
+  </div>
+  <div class="col-12">
+    <label class="form-label" for="references">References <small class="text-muted" style="font-size: small;">(Optional)</small></label>
+    <input type="text" class="form-control" id="references" placeholder="">
+  </div>
+</div>
+
+<hr class="my-4">
 
           <!-- Declarations -->
           <h5 class="section-title">4) Declarations</h5>
@@ -204,6 +241,23 @@
 </div>
 
 <script>
+  const availabilitySelect = document.getElementById('availability');
+  const oohContainer = document.getElementById('oohContactContainer');
+
+  availabilitySelect.addEventListener('change', () => {
+    const value = availabilitySelect.value;
+    if (value === '24/7' || value === 'Business hours + out-of-hours') {
+      oohContainer.style.display = 'block';
+      document.getElementById('oohContact').required = true;
+    } else {
+      oohContainer.style.display = 'none';
+      document.getElementById('oohContact').required = false;
+    }
+  });
+</script>
+
+<script>
+
   const form = document.getElementById('tenderForm');
   const submitBtn = document.getElementById('btnSubmitEmail');
   let formValidated = false; // Tracks if validation passed
