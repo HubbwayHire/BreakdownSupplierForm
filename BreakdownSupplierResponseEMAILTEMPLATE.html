@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Supplier Tender Submission Received</title>
+    <style>
+      body { font-family: "Segoe UI", sans-serif; background: #f6f8fb; margin:0; padding:0; }
+      .container { max-width: 600px; margin: 20px auto; background: #fff; border-radius: 10px; padding: 20px; }
+      h1 { color: #1a1843; font-size: 24px; margin-bottom: 10px; }
+      h2 { color: #1a1843; font-size: 18px; margin-top: 20px; }
+      p, li { color: #333; font-size: 14px; line-height: 1.5; }
+      .section { border: 1px solid #dee2e6; border-radius: 8px; padding: 15px; margin-bottom: 15px; }
+      .label { font-weight: bold; color: #1a1843; }
+      .footer { font-size: 12px; color: #777; text-align: center; margin-top: 20px; }
+      .btn { display: inline-block; padding: 10px 20px; background: #e83643; color: #fff; border-radius: 5px; text-decoration: none; }
+      .btn:hover { background: #c82e39; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header -->
+      <div style="text-align:center; margin-bottom:20px;">
+        <img src="Logo.png" alt="Company Logo" style="max-height:60px; margin-bottom:10px;">
+        <h1>Supplier Tender Submission Received</h1>
+      </div>
+
+      <!-- Company Info -->
+      <div class="section">
+        <h2>1) Company Information</h2>
+        <p><span class="label">Company:</span> {{company}}</p>
+        <p><span class="label">Contact:</span> {{contact}}</p>
+        <p><span class="label">Email:</span> {{email}}</p>
+        <p><span class="label">Phone:</span> {{phone}}</p>
+        <p><span class="label">Address:</span> {{address}}</p>
+        <p><span class="label">Coverage regions:</span> {{regions}}</p>
+        <p><span class="label">Availability:</span> {{availability}}</p>
+      </div>
+
+      <!-- Services & Rates -->
+      <div class="section">
+        <h2>2) Services & Rates</h2>
+        <ul>
+          {{#services}}
+            <li><span class="label">{{name}}:</span> Rate: {{rate}} | Call-out: {{callout}}</li>
+          {{/services}}
+        </ul>
+        <p><span class="label">Other services:</span> {{otherServices}}</p>
+        <p><span class="label">Travel / mileage:</span> {{travelCharge}}</p>
+        <p><span class="label">Out-of-hours rate:</span> {{oohRate}}</p>
+        <p><span class="label">Payment terms:</span> {{paymentTerms}}</p>
+      </div>
+
+      <!-- Equipment & Capabilities -->
+      <div class="section">
+        <h2>3) Equipment & Capabilities</h2>
+        <p><span class="label">Equipment types:</span> {{equipment}}</p>
+        <p><span class="label">Manufacturers supported:</span> {{manufacturers}}</p>
+        <p><span class="label">Certifications:</span> {{certifications}}</p>
+        <p><span class="label">Insurance:</span> {{insurance}}</p>
+        <p><span class="label">References:</span> {{references}}</p>
+      </div>
+
+      <!-- Declaration -->
+      <div class="section">
+        <h2>4) Declaration</h2>
+        <p>The submitter confirmed the information is accurate and rates are valid for 12 months unless otherwise agreed.</p>
+      </div>
+
+      <!-- Footer -->
+      <div class="footer">
+        <p>Submitted on {{submissionDate}}</p>
+        <p>&copy; {{year}} Your Company Name</p>
+      </div>
+    </div>
+  </body>
+</html>
